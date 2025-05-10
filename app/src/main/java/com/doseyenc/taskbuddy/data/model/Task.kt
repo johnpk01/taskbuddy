@@ -11,41 +11,41 @@ data class Task(
     val id: Int = 0,
 
     @SerializedName("task")
-    val task: String,
+    val task: String? = null,
 
     @SerializedName("title")
-    val title: String,
+    val title: String? = null,
 
     @SerializedName("description")
-    val description: String,
+    val description: String? = null,
 
     @SerializedName("sort")
-    val sort: String,
+    val sort: String? = null,
 
     @SerializedName("wageType")
-    val wageType: String,
+    val wageType: String? = null,
 
     @SerializedName("BusinessUnitKey")
-    val businessUnitKey: String,
+    val businessUnitKey: String? = null,
 
     @SerializedName("businessUnit")
-    val businessUnit: String,
+    val businessUnit: String? = null,
 
     @SerializedName("parentTaskID")
-    val parentTaskID: String,
+    val parentTaskID: String? = null,
 
     @SerializedName("preplanningBoardQuickSelect")
-    val prePlanningBoardQuickSelect: String?,
+    val prePlanningBoardQuickSelect: String? = null,
 
     @SerializedName("colorCode")
-    val colorCode: String,
+    val colorCode: String? = null,
 
     @SerializedName("workingTime")
-    val workingTime: String?,
+    val workingTime: String? = null,
 
     @SerializedName("isAvailableInTimeTrackingKioskMode")
-    val isAvailableInTimeTrackingKioskMode: Boolean,
+    val isAvailableInTimeTrackingKioskMode: Boolean = false,
 
     @SerializedName("isAbstract")
-    val isAbstract: Boolean
+    val isAbstract: Boolean = false
 )

@@ -62,11 +62,15 @@ class TaskViewModel @Inject constructor(
             val apiTasks = repository.getTasksFromApi()
             repository.clearTasksInDb()
             repository.saveTasksToDb(apiTasks)
-            _tasks.postValue(repository.getTasksFromDb())
+            _tasks.postValue(apiTasks)
         } catch (e: Exception) {
             _error.postValue(e.message)
         } finally {
             _loading.postValue(false)
         }
+    }
+
+    fun refresh() {
+        initialize()
     }
 }
