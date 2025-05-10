@@ -1,6 +1,7 @@
 package com.doseyenc.taskbuddy.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -25,9 +26,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupViewModel() {
         lifecycleScope.launch {
-            viewModel.fetchTasks()
+            viewModel.initialize()
         }
         viewModel.tasks.observe(this) { taskList ->
+            Log.e("task list", taskList.toString())
         }
 
         viewModel.loading.observe(this) { isLoading ->
