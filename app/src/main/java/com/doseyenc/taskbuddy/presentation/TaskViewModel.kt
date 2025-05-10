@@ -73,4 +73,17 @@ class TaskViewModel @Inject constructor(
     fun refresh() {
         initialize()
     }
+
+    fun search(query: String) {
+        viewModelScope.launch {
+            _loading.value = true
+            try {
+                _tasks.value = repository.searchTasks(query)
+            } catch (e: Exception) {
+                _error.value = "Search failed: ${e.message}"
+            } finally {
+                _loading.value = false
+            }
+        }
+    }
 }

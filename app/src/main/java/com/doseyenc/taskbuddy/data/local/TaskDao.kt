@@ -17,4 +17,17 @@ interface TaskDao {
 
     @Query("DELETE FROM tasks")
     suspend fun deleteAllTasks()
+
+    @Query(
+        """
+    SELECT * FROM tasks WHERE 
+    LOWER(task) LIKE '%' || LOWER(:query) || '%' OR
+    LOWER(title) LIKE '%' || LOWER(:query) || '%' OR
+    LOWER(description) LIKE '%' || LOWER(:query) || '%' OR
+    LOWER(colorCode) LIKE '%' || LOWER(:query) || '%' OR
+    LOWER(businessUnitKey) LIKE '%' || LOWER(:query) || '%' OR
+    LOWER(parentTaskID) LIKE '%' || LOWER(:query) || '%'
+"""
+    )
+    suspend fun searchTasks(query: String): List<Task>
 }

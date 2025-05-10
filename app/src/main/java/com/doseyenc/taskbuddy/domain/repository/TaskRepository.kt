@@ -7,4 +7,5 @@ interface TaskRepository {
     suspend fun getTasksFromDb(): List<Task>
     suspend fun saveTasksToDb(tasks: List<Task>)
     suspend fun clearTasksInDb()
+    suspend fun searchTasks(query: String): List<Task>
 }

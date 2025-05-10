@@ -26,4 +26,8 @@ class TaskRepositoryImpl(
     override suspend fun clearTasksInDb() = withContext(Dispatchers.IO) {
         taskDao.deleteAllTasks()
     }
+
+    override suspend fun searchTasks(query: String): List<Task> = withContext(Dispatchers.IO) {
+        taskDao.searchTasks(query)
+    }
 }
