@@ -9,6 +9,7 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.doseyenc.taskbuddy.databinding.ActivityMainBinding
 import com.doseyenc.taskbuddy.presentation.adapter.TaskAdapter
+import com.doseyenc.taskbuddy.utils.TaskSyncManager
 import com.google.android.material.snackbar.Snackbar
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanOptions
@@ -40,9 +41,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setupUI()
         setupObservers()
+        TaskSyncManager.scheduleTaskSyncWorker(applicationContext)
     }
 
     private fun setupUI() {
