@@ -1,55 +1,88 @@
-Hello dear Android dev prospect!
+# TaskBuddy 🧱
 
-This repository is supposed to act as a playground for your submission.
-Before getting started, please make sure to clone this repository on which you will commit and push your code regularly. Once you are ready, please mail us back the link to your repository. 
+**TaskBuddy** is a demo Android application developed as part of a coding assignment.  
+It connects to a remote API, fetches task data, supports offline usage, provides filtering
+capabilities, and integrates QR code scanning.
 
-Below, you will find the **Task** definition. Happy Hacking :computer: and Good Luck :shamrock:
+---
 
-# Task
+## 📌 Features
 
-Write an Android application that connects to a remote API, downloads a certain set of resources, shows them in a list and provides some basic searching/filtering feature-set.
-In particular, the app should:
+- **Authentication**: Logs in using Basic Auth and uses Bearer token for subsequent requests.
+- **Remote + Offline Sync**: Fetches tasks from the [BauBuddy API](https://api.baubuddy.de) and
+  caches them locally using Room DB.
+- **Task List View**: Displays tasks including `task`, `title`, `description`, and a colored view
+  based on `colorCode`.
+- **Search Functionality**: Search bar in the toolbar that can filter by **any** property of the
+  data model.
+- **QR Code Scanning**: Allows scanning QR codes and uses the scanned content to populate the search
+  query.
+- **Data Refresh**:
+    - Pull-to-refresh using `SwipeRefreshLayout`
+    - Periodic background sync every 60 minutes using `WorkManager`
 
-- Request the resources located at `https://api.baubuddy.de/dev/index.php/v1/tasks/select` 
-- Store them in an appropriate data structure that allows using the application offline
-- Display all items in a list showing `task`, `title`, `description` and `colorCode` (which should be a view colored according to `colorCode`)
-- The app should offer a search menu item (search bar not a separate screen) that allows searching for any of the class properties (even those, that are not visible to the user directly)
-- The app should offer a menu item that allows scanning for QR-Codes
-  - Upon successful scan, the search query should be set to the scanned text
-- In order to refresh the data, the app should offer:
-  - a swipe-2-refresh functionality
-  - and a worker that requests the resources from above every 60 minutes
+---
 
-### Authorization
+## ⚙️ Tech Stack
 
-It's mandatory for your requests towers the API to be authorized. You can find the required request below:
+- **Kotlin + MVVM Architecture**
+- **Room Database**
+- **Retrofit**
+- **OkHttp + Interceptors**
+- **WorkManager**
+- **Hilt (DI)**
+- **Jetpack Navigation**
+- **Coroutines + Flow**
+- **ZXing (QR Code Scanner)**
+- **SwipeRefreshLayout**
+- **Lottie Animations**
 
-This is how it looks in `curl`:
+---
 
-```bash
-curl --request POST \
-  --url https://api.baubuddy.de/index.php/login \
-  --header 'Authorization: Basic QVBJX0V4cGxvcmVyOjEyMzQ1NmlzQUxhbWVQYXNz' \
-  --header 'Content-Type: application/json' \
-  --data '{
-        "username":"365",
-        "password":"1"
-}'
-```
+## 📸 Screenshots
 
-The response will contain a json object, having the access token in `json["oauth"]["access_token"]`. For all subsequent calls this has to be added to the request headers as `Authorization: Bearer {access_token}`.
+1. Task list sorted by `task`:
+   ```
+   ![Task List](images/task-list.png)
+   ```
 
-A possible implementation in `Kotlin` could be the following. You don't have to copy over this one, feel free to indivualize it or use a different network library.
+2. Filtered task list after a search:
+   ```
+   ![Search Result](images/task_search.png)
+   ```
 
-```kotlin
-val client = OkHttpClient()
-val mediaType = MediaType.parse("application/json")
-val body = RequestBody.create(mediaType, "{\n        \"username\":\"365\",\n        \"password\":\"1\"\n}")
-val request = Request.Builder()
-  .url("https://api.baubuddy.de/index.php/login")
-  .post(body)
-  .addHeader("Authorization", "Basic QVBJX0V4cGxvcmVyOjEyMzQ1NmlzQUxhbWVQYXNz")
-  .addHeader("Content-Type", "application/json")
-  .build()
-val response = client.newCall(request).execute()
-```
+3. QR Code scanner:
+   ```
+   ![QR Scanner](images/qr_scanner.gif)
+   ```
+
+4. No results screen:
+   ```
+   ![No Result](images/no_task_found.png)
+   ```
+
+> ℹ️ Replace the placeholder paths with your actual image URLs or file paths inside the repository.
+
+---
+
+## ▶️ Getting Started
+
+1. Clone the repository.
+2. Open the project in **Android Studio**.
+3. Sync Gradle and install dependencies.
+4. Run the app on an emulator or device.
+5. Use the following credentials for login:
+
+- `username`: `365`
+- `password`: `1`
+
+---
+
+## 📫 Notes
+
+This app was developed for the purpose of evaluating Android development skills, architecture
+practices, and feature implementation under a well-defined task.
+
+---
+
+**Happy Coding!** 👨‍💻✨
