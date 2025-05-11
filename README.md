@@ -43,25 +43,24 @@ capabilities, and integrates QR code scanning.
 
 1. Task list sorted by `task`:
    ```
-   ![Task List](images/task-list.png)
+   ![task-list.png](images/task-list.png)
    ```
 
 2. Filtered task list after a search:
    ```
-   ![Search Result](images/task_search.png)
+   ![task_search.png](images/task_search.png)
    ```
 
 3. QR Code scanner:
    ```
-   ![QR Scanner](images/qr_scanner.gif)
+   ![qr_scanner.gif](images/qr_scanner.gif)
    ```
 
 4. No results screen:
    ```
-   ![No Result](images/no_task_found.png)
-   ```
 
-> ℹ️ Replace the placeholder paths with your actual image URLs or file paths inside the repository.
+![no_task_found.png](images/no_task_found.png)
+```
 
 ---
 
