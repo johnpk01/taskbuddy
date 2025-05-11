@@ -31,7 +31,6 @@ capabilities, and integrates QR code scanning.
 - **OkHttp + Interceptors**
 - **WorkManager**
 - **Hilt (DI)**
-- **Jetpack Navigation**
 - **Coroutines + Flow**
 - **ZXing (QR Code Scanner)**
 - **SwipeRefreshLayout**
@@ -41,25 +40,24 @@ capabilities, and integrates QR code scanning.
 
 ## 📸 Screenshots
 
-1. Task list sorted by `task`:
-   ```
-   ![task-list.png](images/task-list.png)
-   ```
-
-2. Filtered task list after a search:
-   ```
-   ![task_search.png](images/task_search.png)
-   ```
-
-3. QR Code scanner:
-   ```
-   ![qr_scanner.gif](images/qr_scanner.gif)
-   ```
-
-4. No results screen:
-   ```
-    ![no_task_found.png](images/no_task_found.png)
-   ```
+<table>
+  <tr>
+    <td><strong>1. Task list sorted by <code>task</code></strong></td>
+    <td><strong>2. Filtered task list after a search</strong></td>
+  </tr>
+  <tr>
+    <td><img src="images/task-list.png" width="300"/></td>
+    <td><img src="images/task_search.png" width="300"/></td>
+  </tr>
+  <tr>
+    <td><strong>3. QR Code scanner</strong></td>
+    <td><strong>4. No results screen</strong></td>
+  </tr>
+  <tr>
+    <td><img src="images/qr_scanner.gif" width="300"/></td>
+    <td><img src="images/no_task_found.png" width="300"/></td>
+  </tr>
+</table>
 
 ---
 
