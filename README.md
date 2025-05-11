@@ -58,9 +58,8 @@ capabilities, and integrates QR code scanning.
 
 4. No results screen:
    ```
-
-![no_task_found.png](images/no_task_found.png)
-```
+    ![no_task_found.png](images/no_task_found.png)
+    ```
 
 ---
 
